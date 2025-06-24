@@ -17,17 +17,21 @@ class Solution {
             if(nums[mid] == target){
                 return mid;
             }
+
+            // Determining which side is sorted
             if(nums[low] <= nums[mid]){
+                // Left side is sorted
                 if(target < nums[mid] && target >= nums[low]){
-                    high = mid - 1;
+                    high = mid - 1; // Target lies in left sorted part
                 }
                 else{
                     low = mid + 1;
                 }
             }
             else{
+                // Right side is sorted
                 if(target > nums[mid] && target <= nums[high]){
-                    low = mid + 1;
+                    low = mid + 1; // Target lies in right sorted part
                 }
                 else{
                     high = mid - 1;
@@ -35,7 +39,7 @@ class Solution {
             }
             
         }
-        return -1;
+        return -1; // Target not found
 
     }
 }
